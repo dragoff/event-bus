@@ -1,0 +1,14 @@
+{
+  "name": "com.dragoff.event-bus",
+  "version": "1.0.0",
+  "displayName": "Event bus",
+  "author": "@dragoff (Evgeniy A)",
+  "unity": "2020.1",
+  "description": "Event bus",
+  "files": [	
+	"Scripts",
+	"Scripts.meta",
+	"package.json.meta"
+  ]
+}
+	
