@@ -1,9 +1,9 @@
 {
-  "name": "com.dragoff.event-bus",
-  "version": "1.0.0",
+  "name": "com.dragoff.eventbus",
+  "version": "0.9.0",
   "displayName": "Event bus",
   "author": "@dragoff (Evgeniy A)",
-  "unity": "2020.1",
+  "unity": "2021.2",
   "description": "Event bus",
   "files": [	
 	"Scripts",

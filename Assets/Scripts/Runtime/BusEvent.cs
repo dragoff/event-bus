@@ -107,7 +107,7 @@ namespace EventBusSpace
 		/// <summary>Subscribes to the Event. Auto unsubscribe when Component is destroyed.</summary>
 		public SubscriberInfo Subscribe(Component component, Action callback)
 		{
-			return SubscribeRaw(x => callback()).JoinWith(component);
+			return SubscribeRaw(_ => callback()).JoinWith(component);
 		}
 
 		/// <summary>Subscribes to the Event. Is called if condition is True. Auto unsubscribe when Component is destroyed.</summary>
@@ -119,7 +119,7 @@ namespace EventBusSpace
 		/// <summary>Subscribes to the Event. Is called if condition is True. Auto unsubscribe when Component is destroyed.</summary>
 		public SubscriberInfo Subscribe(Component component, Func<T, bool> condition, Action callback)
 		{
-			return SubscribeRaw((o) => callback()).JoinWith(component).Condition(condition);
+			return SubscribeRaw(_ => callback()).JoinWith(component).Condition(condition);
 		}
 
 		/// <summary>Subscribe w/o auto unsubscribe. Firing order before others.</summary>
@@ -133,7 +133,7 @@ namespace EventBusSpace
 		/// <summary>Subscribes to the Event. Firing order before others. Auto unsubscribe when Component is destroyed.</summary>
 		public SubscriberInfo SubscribeFirst(Component component, Action callback)
 		{
-			return SubscribeRawFirst(x => callback()).JoinWith(component);
+			return SubscribeRawFirst(_ => callback()).JoinWith(component);
 		}
 
 		/// <summary>Subscribes to the Event. Firing order before others. Auto unsubscribe when Component is destroyed.</summary>
@@ -145,7 +145,7 @@ namespace EventBusSpace
 		/// <summary>Subscribes to the Event. Firing order before others. Is called if condition is True. Auto unsubscribe when Component is destroyed.</summary>
 		public SubscriberInfo SubscribeFirst(Component component, Func<T, bool> condition, Action callback)
 		{
-			return SubscribeRawFirst((o) => callback()).JoinWith(component).Condition(condition);
+			return SubscribeRawFirst(_ => callback()).JoinWith(component).Condition(condition);
 		}
 
 		/// <summary>Subscribes to the Event. Firing order before others. Is called if condition is True. Auto unsubscribe when Component is destroyed.</summary>
@@ -283,7 +283,7 @@ namespace EventBusSpace
 		/// <summary>Subscribes to the Event. Is called if condition is True. Auto unsubscribe when Component is destroyed.</summary>
 		public SubscriberInfo Subscribe(Component component, Func<T1, T2, bool> condition, Action callback)
 		{
-			return SubscribeRaw((o, O) => callback()).JoinWith(component).Condition(condition);
+			return SubscribeRaw((_, __) => callback()).JoinWith(component).Condition(condition);
 		}
 
 		public virtual SubscriberInfo BindInternal(Component comp, BindDirection way, Action<T1, T2> callback)
