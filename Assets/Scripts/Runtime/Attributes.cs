@@ -3,6 +3,14 @@
 namespace EventBusSpace
 {
 	/// <summary>
+	/// Do not show the Event in Log
+	/// </summary>
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	public class HideLogAttribute : Attribute
+	{
+	}
+
+	/// <summary>
 	/// Allow event call self from subscribers (beware of infinity loop)
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
