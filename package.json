@@ -1,6 +1,6 @@
 {
   "name": "com.dragoff.eventbus",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "displayName": "Event bus",
   "author": "@dragoff (Evgeniy A)",
   "unity": "2021.2",

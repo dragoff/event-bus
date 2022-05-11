@@ -4,18 +4,20 @@ using UnityEngine;
 
 namespace EventBusSpace
 {
+	//  Example:
+	// class MyBus : EventBus
+	// {
+	// 	public static BusEvent EventZero;
+	//
+	// 	[HideLog]
+	// 	public static BusEvent<string> EventOne;
+	//
+	// 	public static BusState<int> StateInt;
+	//
+	// 	static MyBus() => InitFields<MyBus>();
+	// }
 	/// <summary>
 	/// Base class for any Bus unit.
-	/// Usage:
-	/// private class MyBus : EventBus
-	/// {
-	///		public static BusEvent EventZero;
-	/// 	[HideInLog]
-	///		public static BusEvent<string> RREventOne;
-	///		public static State<int> StateInt
-	/// 
-	///		static MyBus() => InitFields<MyBus>();
-	/// }
 	/// </summary>
 	public class EventBus
 	{
@@ -34,7 +36,7 @@ namespace EventBusSpace
 				{
 					var @event = (BusEventBase)Activator.CreateInstance(fi.FieldType);
 					@event.Name = $"<b>{thisType.Name}</b>.{fi.Name}";
-					@event.HideInLog = fi.GetCustomAttributes(typeof(HideInLogAttribute), false).Any();
+					@event.HideInLog = fi.GetCustomAttributes(typeof(HideLogAttribute), false).Any();
 					@event.EnableChainPublishing = fi.GetCustomAttributes(typeof(AllowChainAttribute), false).Any();
 					fi.SetValue(null, @event);
 				});
