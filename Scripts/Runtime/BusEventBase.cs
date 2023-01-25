@@ -9,9 +9,6 @@ namespace EventBusSpace
 	/// </summary>
 	public abstract class BusEventBase
 	{
-		/// <summary>Write events to Console</summary>
-		public static bool LogEvents { get; set; } = true;
-
 		/// <summary>Stop any events</summary>
 		public static bool SuppressEvents { get; set; }
 
@@ -19,7 +16,7 @@ namespace EventBusSpace
 		public string Name { get; set; }
 
 		/// <summary>Do not show the event in log</summary>
-		public bool HideInLog { get; set; }
+		public bool LogEvent { get; set; }
 		/// <summary>Remove limit for chaining same envent. (WARNING - this will allow situation with infinity loops.</summary>
 		public bool EnableChainPublishing { get; set; }
 
@@ -37,7 +34,7 @@ namespace EventBusSpace
 				IsFired = true;
 
 			//log
-			if (LogEvents && !HideInLog)
+			if (LogEvent)
 				Debug.Log($"<b>Fired</b> {ToLogString()} \r\n<color=grey>({Subscribers.Count} subscribers)</color>");
 
 			//enumerate subscribers

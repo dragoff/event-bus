@@ -6,7 +6,7 @@ namespace EventBusSpace
 	/// Do not show the Event in Log
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-	public class HideLogAttribute : Attribute
+	public class LogEventAttribute : Attribute
 	{
 	}
 
